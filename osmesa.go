@@ -51,7 +51,7 @@ package osmesa
 // #cgo pkg-config: osmesa
 // #include <GL/osmesa.h>
 import "C"
-import "github.com/go-gl/gl"
+import "github.com/go-gl/osmesa/gl"
 import "unsafe"
 
 type PixelType int
