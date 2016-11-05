@@ -16,17 +16,8 @@ package gl
 #cgo darwin LDFLAGS: -framework OpenGL
 #cgo linux CFLAGS: -DTAG_LINUX
 #cgo linux LDFLAGS: -lGL
-#cgo egl CFLAGS: -DTAG_EGL
-#cgo egl LDFLAGS: -lEGL
-// Check the EGL tag first as it takes priority over the platform's default
-// configuration of WGL/GLX/CGL.
-#if defined(TAG_EGL)
-	#include <stdlib.h>
-	#include <EGL/egl.h>
-	void* GlowGetProcAddress(const char* name) {
-		return eglGetProcAddress(name);
-	}
-#elif defined(TAG_WINDOWS)
+
+#if defined(TAG_WINDOWS)
 	#define WIN32_LEAN_AND_MEAN 1
 	#include <windows.h>
 	#include <stdlib.h>
